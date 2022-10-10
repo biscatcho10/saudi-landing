@@ -1,0 +1,7 @@
+{
+    "Dashboard": true,
+    "Accounts": true,
+    "Settings": true,
+    "Frontend": true,
+    "Roles": true
+}
