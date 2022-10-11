@@ -116,6 +116,20 @@ if (!function_exists('app_name')) {
     }
 }
 
+
+if (!function_exists('site_name')) {
+    /**
+     * Get the application name.
+     *
+     * @return string
+     */
+    function site_name()
+    {
+        return Settings::get('name:' . app()->getLocale());
+    }
+}
+
+
 if (!function_exists('app_logo')) {
     /**
      * Get the application logo url.
@@ -330,7 +344,6 @@ function time_difference($start)
     }
     return false;
 }
-
 
 
 function delFile($model)

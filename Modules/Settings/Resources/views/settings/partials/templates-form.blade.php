@@ -10,124 +10,23 @@
 
 
 <div class="accordion" id="accordionExample">
-
     <div class="card">
-        <div class="card-header" id="heading1">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                    # {{ __('Subscribe Mail Template') }}
-                </button>
-            </h2>
-        </div>
+        <div class="card-body">
 
-        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::text('subscribe_mail_subject')->value(Settings::get('subscribe_mail_subject'))->label(__('Subject')) }}
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ BsForm::text('mail_subject')->value(Settings::get('mail_subject'))->label(__('Subject')) }}
                 </div>
+            </div>
 
 
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::textarea('subscribe_mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor1')->value(Settings::get('subscribe_mail_message'))->label(__('Message')) }}
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ BsForm::textarea('mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor1')->value(Settings::get('mail_message'))->label(__('Message')) }}
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-header" id="heading2">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                    # {{ __('Contacts Mail Template') }}
-                </button>
-            </h2>
-        </div>
-
-        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::text('contact_mail_subject')->value(Settings::get('contact_mail_subject'))->label(__('Subject')) }}
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::textarea('contact_mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor2')->value(Settings::get('contact_mail_message'))->label(__('Message')) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" id="heading3">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-                    # {{ __('Donors Mail Template') }}
-                </button>
-            </h2>
-        </div>
-
-        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::text('donation_mail_subject')->value(Settings::get('donation_mail_subject'))->label(__('Subject')) }}
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::textarea('donation_mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor3')->value(Settings::get('donation_mail_message'))->label(__('Message')) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" id="heading4">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-                    # {{ __('Volunteers Mail Template') }}
-                </button>
-            </h2>
-        </div>
-
-        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::text('volunteer_mail_subject')->value(Settings::get('volunteer_mail_subject'))->label(__('Subject')) }}
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12">
-                        {{ BsForm::textarea('volunteer_mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor4')->value(Settings::get('volunteer_mail_message'))->label(__('Message')) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </div>
 
 

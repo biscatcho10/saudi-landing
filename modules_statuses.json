@@ -3,5 +3,6 @@
     "Accounts": true,
     "Settings": true,
     "Frontend": true,
-    "Roles": true
+    "Roles": true,
+    "HowKnow": true
 }

@@ -7,6 +7,11 @@
 <!-- Admins -->
 @include('accounts::admins.sidebar')
 
+@include('settings::requests.sidebar')
+
+<!--Reasons -->
+@include('howknow::sidebar')
+
 <!-- settings -->
 @include('dashboard::sidebar.settings')
 

@@ -14,5 +14,9 @@
 Route::middleware('dashboard')->prefix('dashboard')->as('dashboard.')->group(function () {
     Route::get('locale/{locale}', 'LocaleController@update')->name('locale');
     Route::get('/', 'DashboardController@index')->name('home');
+
+    Route::get('/map-url', 'DashboardController@mapData')->name("mapData");
+    Route::get('/browser-usage', 'DashboardController@browserUsage')->name("browserUsage");
 });
+
 

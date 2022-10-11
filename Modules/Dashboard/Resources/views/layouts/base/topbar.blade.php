@@ -4,7 +4,7 @@
             <div class="float-right">
 
                 {{--languages--}}
-                @include('dashboard::layouts.partials.topbar.languages')
+                {{-- @include('dashboard::layouts.partials.topbar.languages') --}}
                 {{--full screen--}}
                 @include('dashboard::layouts.partials.topbar.full_screen')
                 {{--notifications--}}

@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                @include("dashboard::layouts.apps.statestics")
+                {{-- @include("dashboard::layouts.apps.statestics") --}}
 
 
                 <!-- Visitors Map -->
@@ -43,15 +43,10 @@
                 {{-- @include("dashboard::layouts.apps.chart") --}}
                 <!--/ chart -->
 
-                <div class="row">
-                    <div class="col-lg-4">
-                        @include('dashboard::layouts.apps.inbox')
-                    </div>
+                <!--/ visitors -->
+                @include("dashboard::layouts.apps.visitors")
+                <!--/ visitors -->
 
-                    <div class="col-lg-8">
-                        @include('dashboard::layouts.apps.donations')
-                    </div>
-                </div>
             </div>
         </div>
     @endcomponent
