@@ -105,6 +105,34 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Update the specified resource in storage.
+     * @param SettingRequest $request
+     * @return RedirectResponse
+     */
+    public function update1(SettingRequest $request)
+    {
+        // dd($request->all());
+        foreach ($request->except(
+            array_merge(['_token', '_method', 'media'], $this->files)
+        )
+            as $key => $value) {
+            Settings::set($key, $value);
+        }
+
+        foreach ($this->files as $file) {
+            // Settings::set($file)->addAllMediaFromTokens([], $file);
+            if ($request->hasFile($file)) {
+                delFile(Settings::instance($file)->getMediaResource($file));
+                Settings::instance($file)->addMediaFromRequest($file)->toMediaCollection($file);
+            }
+        }
+
+        flash(trans('settings::settings.messages.updated'))->success();
+
+        return redirect()->back();
+    }
+
 
 
     function changeEnvironmentVariable($key, $value)

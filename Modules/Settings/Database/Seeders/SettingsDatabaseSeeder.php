@@ -40,7 +40,10 @@ class SettingsDatabaseSeeder extends Seeder
             'description:en' => 'Landing Page',
             'description:ar' => 'صفحة العرض',
             'meta_description:en' => 'Landing Page',
-            'meta_description:ar' => 'صفحة العرض'
+            'meta_description:ar' => 'صفحة العرض',
+            'mail_subject' => 'Confirmation Contact Request',
+            'mail_message' => 'Hello {user_name}, Your data Sent Successfully,
+            You Are Welcome.',
         ];
 
         foreach ($titles as $key => $value) {
