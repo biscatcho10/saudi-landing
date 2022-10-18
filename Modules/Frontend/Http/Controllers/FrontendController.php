@@ -5,6 +5,9 @@ namespace Modules\Frontend\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Laraeast\LaravelSettings\Facades\Settings;
+use Mail;
+use Modules\Frontend\Emails\RequestMail;
 use Modules\Frontend\Entities\ContactRequest;
 use Modules\HowKnow\Entities\Reason;
 use Modules\Settings\Entities\Subscriber;
@@ -58,6 +61,9 @@ class FrontendController extends Controller
             "reference_num" => $this->makeReference($references),
         ]);
 
+        // send mail
+        $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
+
         notify()->success(__('Your data sent successfully'));
         return redirect()->back();
     }
@@ -73,5 +79,22 @@ class FrontendController extends Controller
         } else {
             $this->makeReference($references);
         }
+    }
+
+
+    public function sendEmail($name, $email, $code)
+    {
+        $email_template = Settings::get('mail_message');
+        $email_template = str_replace('{user_name}', $name, $email_template);
+        // $email_template = str_replace('{vaccine}', $vaccine->name, $email_template);
+        $details = [
+            'subject' => Settings::get('mail_subject'),
+            'body' => $email_template,
+            'actionText' => env('APP_NAME'),
+            'actionURL' => url('/'),
+            'code' => $code
+        ];
+
+        Mail::to($email)->send(new RequestMail($details));
     }
 }
