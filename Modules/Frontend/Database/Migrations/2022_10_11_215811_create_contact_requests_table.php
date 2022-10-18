@@ -16,6 +16,7 @@ class CreateContactRequestsTable extends Migration
     {
         Schema::create('contact_requests', function (Blueprint $table) {
             $table->id();
+            $table->string("exhibition", 191);
             $table->string("name", 191);
             $table->string("nationality", 191)->nullable();
             $table->string("email", 191);

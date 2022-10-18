@@ -11,6 +11,7 @@ class ContactRequest extends Model
     use HasFactory;
 
     protected $fillable = [
+        "exhibition",
         "name",
         "nationality",
         "email",

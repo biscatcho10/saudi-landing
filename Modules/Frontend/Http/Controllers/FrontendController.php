@@ -6,6 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Frontend\Entities\ContactRequest;
+use Modules\HowKnow\Entities\Reason;
 use Modules\Settings\Entities\Subscriber;
 
 class FrontendController extends Controller
@@ -17,9 +18,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-
+        $reasons = Reason::all();
         return view('frontend::index', [
-            'lang' => app()->getLocale(),
+            'reasons' =>$reasons
         ]);
     }
 
@@ -28,7 +29,7 @@ class FrontendController extends Controller
      * Display a listing of the resource.
      * @return RedirectResponse
      */
-    public function contactPost(Request $request)
+    public function requestPost(Request $request)
     {
         $validator = \Validator::make($request->all(), [
             "name" => 'required',
@@ -36,7 +37,7 @@ class FrontendController extends Controller
             "email" => 'required|email',
             "phone_number" => 'required',
             "profession" => 'required',
-            "reason_id" => 'required',
+            "reason" => 'required|exists:reasons,reason',
         ]);
 
         if ($validator->fails()) {
@@ -44,17 +45,33 @@ class FrontendController extends Controller
             notify()->error($firstError);
             return redirect()->back();
         }
-        $contact = Subscriber::create($request->except('_token'));
 
-        $references = ContactRequest::plack('reference_num')->toArray();
-        $ref_num = rand(1000000, 9999999);
-        if (!in_array($ref_num, $references)) {
-            $contact->update([
-                "reference_num" => $ref_num,
-            ]);
-        }
+        $request->merge([
+            'reason_id' => Reason::where('reason', '=', $request->reason)->first()->id,
+            'phone_number' => $request->code . " " . $request->phone_number
+        ]);
+
+        $contact = ContactRequest::create($request->except('_token'));
+
+        $references = ContactRequest::pluck('reference_num')->toArray();
+        $contact->update([
+            "reference_num" => $this->makeReference($references),
+        ]);
 
         notify()->success(__('Your data sent successfully'));
         return redirect()->back();
+    }
+
+
+
+    protected function makeReference($references)
+    {
+        $ref_num = rand(1000000, 9999999);
+
+        if (!in_array($ref_num, $references)) {
+            return $ref_num;
+        } else {
+            $this->makeReference($references);
+        }
     }
 }

@@ -29,6 +29,8 @@ class SettingsDatabaseSeeder extends Seeder
     {
 
         $titles = [
+            'title' => 'EGYPT\'S GREATEST COMEBACK',
+            'description' => 'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.',
             'email' => 'info@ape-eg.com',
             'phone' => '(+202) 23438556',
             'mobile' => '(+202) 2341 2723',
