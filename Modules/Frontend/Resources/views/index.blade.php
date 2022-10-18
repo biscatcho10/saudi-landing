@@ -78,7 +78,9 @@
                             <div class="cont_input d-flex">
                                 <input type="text" name="code" list="phoneSelect" class="pSelect" />
                                 <datalist id="phoneSelect">
-                                    <option value="+20"></option>
+                                    @foreach ($codes as $code)
+                                        <option value="{{ $code['dial_code'] }}"></option>
+                                    @endforeach
                                 </datalist>
 
                                 <input class="inp_phone" name="phone_number" type="tel"
@@ -135,9 +137,9 @@
     <!-- End section contact  -->
     {{ Settings::get('google_id_footer') }}
 
-       <!-- scripts end -->
-       <x:notify-messages />
-       @notifyJs
+    <!-- scripts end -->
+    <x:notify-messages />
+    @notifyJs
 </body>
 
 </html>
