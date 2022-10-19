@@ -2,7 +2,6 @@
 
 namespace Modules\Frontend\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Laraeast\LaravelSettings\Facades\Settings;
@@ -10,7 +9,6 @@ use Mail;
 use Modules\Frontend\Emails\RequestMail;
 use Modules\Frontend\Entities\ContactRequest;
 use Modules\HowKnow\Entities\Reason;
-use Modules\Settings\Entities\Subscriber;
 
 class FrontendController extends Controller
 {
@@ -85,7 +83,7 @@ class FrontendController extends Controller
     {
         $email_template = Settings::get('mail_message');
         $email_template = str_replace('{user_name}', $name, $email_template);
-        
+
         $details = [
             'subject' => Settings::get('mail_subject'),
             'body' => $email_template,
