@@ -27,8 +27,7 @@ class ReasonSeederTableSeeder extends Seeder
 
         foreach ($reasons as $key => $reason) {
             Reason::create([
-                'reason:en' => $key,
-                'reason:ar' => $reason
+                'reason' => $key,
             ]);
         }
     }

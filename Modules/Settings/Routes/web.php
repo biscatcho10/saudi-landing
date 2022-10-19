@@ -15,6 +15,7 @@ Route::middleware('dashboard')->prefix('dashboard')->as('dashboard.')->group(fun
     Route::get('main_settings', 'Dashboard\SettingController@main')->name('settings.main');
     Route::get('settings', 'Dashboard\SettingController@index')->name('settings.index');
     Route::put('settings', 'Dashboard\SettingController@update')->name('settings.update');
+    Route::put('settings/post', 'Dashboard\SettingController@update1')->name('settings.update1');
 
     // test mail
     Route::get('test-mail', 'Dashboard\SettingController@testMail')->name('settings.test-mail');

@@ -22,7 +22,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    {{ BsForm::textarea('mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor1')->value(Settings::get('mail_message'))->label(__('Message')) }}
+                    {{ BsForm::textarea('mail_message')->rows(3)->attribute('class', 'form-control ckeditor')->attribute('id', 'mailEditor1')->value(Settings::get('mail_message'))->label(__('Message'))->note("You use these tags : {user_name}") }}
                 </div>
             </div>
         </div>

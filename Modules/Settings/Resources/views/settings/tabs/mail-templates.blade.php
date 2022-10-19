@@ -9,7 +9,7 @@
         @slot('title', trans('settings::settings.actions.update'))
         @slot('breadcrumbs', ['dashboard.settings.update'])
 
-        {{ BsForm::resource('settings::settings')->put(route('dashboard.settings.update'), ['files' => true]) }}
+        {{ BsForm::resource('settings::settings')->put(route('dashboard.settings.update1'), ['files' => true]) }}
         @component('dashboard::layouts.components.box')
 
             @slot('title', trans('settings::settings.tabs.mail-templates'))

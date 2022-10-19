@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('locale/{locale}', 'LocaleController@update')->name('frontend.locale');
-Route::post('theme', 'LocaleController@change')->name('change.theme');
+Route::get('/', 'FrontendController@index')->name('home');
 
-Route::middleware(['frontend.locales'])->group(function () {
+Route::post('/request', 'FrontendController@requestPost')->name('request.post');
 
-    Route::get('/', 'FrontendController@index')->name('home');
-
-    Route::post('/contact-request', 'FrontendController@contactPost')->name('contact.post');
-});
+Route::get('/thanks', 'FrontendController@thanks')->name('thanks.page');

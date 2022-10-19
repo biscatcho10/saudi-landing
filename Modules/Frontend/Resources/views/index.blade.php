@@ -5,126 +5,143 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{{ asset('frontend/pix/logo1.png') }}" type="image/png">
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" />
+    <title>Landing Page</title>
+    <link rel="icon" href="{{ asset('frontend/img/logo.png') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
-    @if (Settings::get('theme') == 'dark')
-        <link class="active-theme" rel="stylesheet" href="{{ asset('frontend/css/dark.css') }}" />
-    @else
-        <link class="active-theme" rel="stylesheet" href="{{ asset('frontend/css/light.css') }}" />
-    @endif
-    <style>
-        .landing {
-            height: 100vh;
-            background-image: url("{{ Settings::instance('cover')->getFirstMediaUrl('cover') }}");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    @notifyCss
 
-    <title>
-        {{ env('APP_NAME') }}
-    </title>
+    <title>{{ Settings::get('seo_title') }}</title>
+    <meta name="description" content="{{ Settings::get('seo_desc') }}">
+    <meta name="keywords" content="{{ Settings::get('key_words') }}">
+    {!! Settings::get('google_analects') !!}
+    {!! Settings::get('facebook_pixel') !!}
+    {!! Settings::get('google_id_head') !!}
+    {!! Settings::get('google_tag_manger') !!}
+    {!! Settings::get('hotjar') !!}
+    {!! Settings::get('linked_tag') !!}
+
 </head>
 
 <body>
-    @include('frontend::includes.theme')
-    <!-- start nav  -->
-    @include('frontend::includes.nav')
-    <!-- end nav  -->
-    <!-- start Landing page -->
-    <section class="landing d-flex justify-content-center text-light">
-        <div class="l-c d-flex justify-content-center align-items-center text-center">
-            <div class="container">
-                <h2>Shady Gaber Media Agency</h2>
-
-                <p class="lead">
-                    Making Your Marketing So Useful, People Would Pay For It.
-                </p>
-                <button class="btn btn-dark">
-                    <a href="{{ route('contact') }}">Contact Us</a>
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- end Landing page -->
-    <!-- about-US start  -->
-    <section class="about-us text-center">
-        <h2 class="text-light">About Us</h2>
-        <span></span>
-        <p class="lead text-light">
-            {!! $settings->about_us_desc !!}
-        </p>
-    </section>
-    <!-- about-US end  -->
-    <!-- Our-services start  -->
-    <section class="services text-center">
-        <h2>Our Services</h2>
-        <span></span>
+    <!-- start section contact  -->
+    <section id="contact">
         <div class="container">
-            <div class="row cont">
-                @forelse ($services as $service)
-                    <div class="col">
-                        <div class="card">
-                            <img class="img-fluid" src="{{ $service->getFirstMediaUrl('images') }}" alt="" />
-                            <div class="card-con">
-                                <h3>{{ $service->name }}</h3>
-                            </div>
-                            <a href="#portfolio" data-filter="all"><button>Show More</button></a>
+            <div class="row">
+                <div class="col-12">
+                    <div class="top_sec mb-4">
+                        <h2 class="title h-100 mb-3 mb-md-0">
+                            {{ Settings::get('title') }}
+                        </h2>
+                        <div class="logo d-flex mb-5 mb-md-0">
+                            <img src="img/logo.png" alt="" />
                         </div>
+                        <p class="mb-0 pl-lg-4">
+                            {{ Settings::get('description') }}
+                        </p>
                     </div>
-                @empty
-                @endforelse
+                </div>
+                <!-- start left sec  -->
+                <div class="col-md-6">
+                    <!-- start form  -->
+                    <form action="{{ route('request.post') }}" method="POST">
+                        @csrf
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span class="active"></span>
+                                Exhibition
+                            </label>
+                            <input type="text" name="exhibition" placeholder="" value="NPE Ex Riyadh 2022" />
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                Full Name
+                            </label>
+                            <input type="text" name="name" placeholder="please write Your Name" />
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                Nationality
+                            </label>
+                            <input type="text" name="nationality" placeholder="please write Your Nationality" />
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                Mobile Number
+                            </label>
+                            <div class="cont_input d-flex">
+                                <input type="text" name="code" list="phoneSelect" class="pSelect" />
+                                <datalist id="phoneSelect">
+                                    @foreach ($codes as $code)
+                                        <option value="{{ $code['dial_code'] }}"></option>
+                                    @endforeach
+                                </datalist>
+
+                                <input class="inp_phone" name="phone_number" type="tel"
+                                    placeholder="please write Your Mobile Number" />
+                            </div>
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                E-Mail
+                            </label>
+                            <input type="email" name="email" placeholder="please write Your E-Mail" />
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                Profession
+                            </label>
+                            <input type="text" name="profession" placeholder="please write Your profession" />
+                        </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            <label for="">
+                                <span></span>
+                                How did you hear about us ?
+                            </label>
+                            <input type="text" name="reason" list="Selects" placeholder="Please Select" />
+                            <datalist id="Selects">
+                                @foreach ($reasons as $reason)
+                                    <option value="{{ $reason->reason }}"> {{ $reason->reason }} </option>
+                                @endforeach
+                            </datalist>
+                        </div>
+                        <!-- start btn form  -->
+                        <button type="submit" class="btn_form">Register</button>
+                    </form>
+                    <!-- End form  -->
+                </div>
+                <!-- End left sec  -->
+                <!-- start left sec  -->
+                <div class="col-md-6 d-none d-md-block">
+                    <!-- start img section -->
+                    <div class="img_sec h-100 w-100 position-relative">
+                        <img src="{{ asset('frontend/img/Landing Page-Desigcopy.png') }}" alt="" />
+                    </div>
+                    <!-- End img section -->
+                </div>
+                <!-- End left sec  -->
             </div>
         </div>
     </section>
+    <!-- End section contact  -->
+    {{ Settings::get('google_id_footer') }}
 
-    <!-- Our-services end  -->
-    <!-- our vision start -->
-    <section class="our-vision text-center">
-        <h2 class="text-light">Our Vision</h2>
-        <span></span>
-        <p class="lead text-light">
-            {!! $settings->our_vision !!}
-        </p>
-    </section>
-    <!-- our vision end -->
-    <!-- portofolio start  -->
-    @include('frontend::includes.portfolio')
-    <!-- portofolio end  -->
-    <!-- our-mission start  -->
-    <section class="our-mission text-center">
-        <h2 class="text-light">Our Mission</h2>
-        <span></span>
-        <p class="lead text-light">
-            {!! $settings->our_mission !!}
-        </p>
-    </section>
-    <!-- our-mission end  -->
-    <!-- our partner start  -->
-    <div class="our-partner">
-        <div class="slider">
-            @forelse ($partners as $partner)
-                <div class="slide"><img src="{{ $partner->getFirstMediaUrl('images') }}" alt="" /></div>
-            @empty
-            @endforelse
-        </div>
-    </div>
-    <!-- our partner end  -->
-
-    <!-- footer start  -->
-    @include('frontend::includes.footer')
-    <!-- footer end  -->
-
-    <!-- scripts start -->
-    @include('frontend::includes.scripts')
     <!-- scripts end -->
+    <x:notify-messages />
+    @notifyJs
 </body>
 
 </html>

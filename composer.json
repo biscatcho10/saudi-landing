@@ -40,6 +40,7 @@
         "nwidart/laravel-modules": "^8.2",
         "rogervila/array-diff-multidimensional": "^2.1",
         "santigarcor/laratrust": "^6.3",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-backup": "^6.16"
     },
     "require-dev": {
