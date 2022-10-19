@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Adlinnaka";
+  src: url("../font/Adlinnaka-BoldDemo.ttf");
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 :root {
   --min_color: #d3a837;
 }
@@ -13,6 +20,7 @@ html {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
 }
+
 span {
   color: var(--min_color);
 }
@@ -54,6 +62,7 @@ img {
       grid-row: 1 / -1;
       line-height: 0.9;
       margin-top: 25px;
+      font-family: "Adlinnaka", sans-serif;
     }
     .logo {
       grid-column: 2 / -1;

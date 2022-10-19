@@ -15,25 +15,17 @@ use Modules\Settings\Entities\Subscriber;
 class FrontendController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     * @return RedirectResponse
-     */
     public function index()
     {
         $reasons = Reason::all();
         $codes = config('countrycodes');
         return view('frontend::index', [
-            'reasons' =>$reasons,
-            'codes' =>$codes
+            'reasons' => $reasons,
+            'codes' => $codes
         ]);
     }
 
 
-    /**
-     * Display a listing of the resource.
-     * @return RedirectResponse
-     */
     public function requestPost(Request $request)
     {
         $validator = \Validator::make($request->all(), [
@@ -66,10 +58,15 @@ class FrontendController extends Controller
         // send mail
         $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
 
-        notify()->success(__('Your data sent successfully'));
-        return redirect()->back();
+        notify()->success(__('Your data sent successfully.'));
+        return redirect()->route('thanks.page');
     }
 
+
+    public function thanks()
+    {
+        return view('frontend::thanks');
+    }
 
 
     protected function makeReference($references)
@@ -88,7 +85,7 @@ class FrontendController extends Controller
     {
         $email_template = Settings::get('mail_message');
         $email_template = str_replace('{user_name}', $name, $email_template);
-        // $email_template = str_replace('{vaccine}', $vaccine->name, $email_template);
+        
         $details = [
             'subject' => Settings::get('mail_subject'),
             'body' => $email_template,

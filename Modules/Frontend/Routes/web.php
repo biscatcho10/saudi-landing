@@ -14,3 +14,5 @@
 Route::get('/', 'FrontendController@index')->name('home');
 
 Route::post('/request', 'FrontendController@requestPost')->name('request.post');
+
+Route::get('/thanks', 'FrontendController@thanks')->name('thanks.page');

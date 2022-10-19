@@ -42,8 +42,9 @@ class SettingsDatabaseSeeder extends Seeder
             'meta_description:en' => 'Landing Page',
             'meta_description:ar' => 'صفحة العرض',
             'mail_subject' => 'Confirmation Contact Request',
-            'mail_message' => 'Hello {user_name}, Your data Sent Successfully,
-            You Are Welcome.',
+            'mail_message' => 'Hello {user_name}, Your data Sent Successfully,You Are Welcome.',
+            'thank_title' => 'THANK YOU!',
+            'thank_desc' => 'Thanks a bunch for filling that out. It means a lot to us, just like you do! We really appreciate you giving us a moment of your time today. Thanks for being you.'
         ];
 
         foreach ($titles as $key => $value) {

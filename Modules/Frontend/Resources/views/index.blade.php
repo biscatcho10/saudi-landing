@@ -19,6 +19,8 @@
     {!! Settings::get('facebook_pixel') !!}
     {!! Settings::get('google_id_head') !!}
     {!! Settings::get('google_tag_manger') !!}
+    {!! Settings::get('hotjar') !!}
+    {!! Settings::get('linked_tag') !!}
 
 </head>
 

@@ -77,8 +77,8 @@
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Hotjat</label>
-                        <textarea name="hotjat" class="form-control" rows="3"> {{ Settings::get('hotjat') }} </textarea>
+                        <label for="">Hotjar</label>
+                        <textarea name="hotjar" class="form-control" rows="3"> {{ Settings::get('hotjar') }} </textarea>
                     </div>
                 </div>
                 <div class="col-6">
