@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title></title>
-
-    <link rel="icon" href="{{ asset('frontend/img/titl-logo.png') }}" />
+    <title>{{ site_name() }}</title>
+    <link rel="shortcut icon" href="{{ app_favicon() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/thanks.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700" rel="stylesheet" type="text/css" />
@@ -22,7 +21,7 @@
     {!! Settings::get('google_tag_manger') !!}
     {!! Settings::get('hotjar') !!}
     {!! Settings::get('linked_tag') !!}
-    
+
 </head>
 
 <body>

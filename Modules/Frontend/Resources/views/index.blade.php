@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
-    <link rel="icon" href="{{ asset('frontend/img/logo.png') }}" />
+    <title>{{ site_name() }}</title>
+    <link rel="shortcut icon" href="{{ app_favicon() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
@@ -35,7 +35,7 @@
                             {{ Settings::get('title') }}
                         </h2>
                         <div class="logo d-flex mb-5 mb-md-0">
-                            <img src="img/logo.png" alt="" />
+                            <img src="{{ app_logo() }}" alt="" />
                         </div>
                         <p class="mb-0 pl-lg-4">
                             {{ Settings::get('description') }}

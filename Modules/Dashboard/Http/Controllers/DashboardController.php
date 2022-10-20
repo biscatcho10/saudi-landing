@@ -7,6 +7,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Modules\Dashboard\Entities\VisitorInformation;
+use Modules\Frontend\Entities\ContactRequest;
+use Modules\HowKnow\Entities\Reason;
 use Modules\Settings\Entities\ContactUs;
 
 class DashboardController extends Controller
@@ -23,8 +25,25 @@ class DashboardController extends Controller
             "last30days" => VisitorInformation::whereDate("vis_lastvisit", '>', Carbon::now()->subDays(30))->count()
         ];
 
-        return view('dashboard::index',[
+        $contacts = ContactRequest::count();
+
+        $id = ContactRequest::select('reason_id')
+            ->groupBy('reason_id')
+            ->orderByRaw('COUNT(*) DESC')
+            ->limit(1)
+            ->first();
+
+
+        if($id){
+            $reason = Reason::find($id->reason_id)->reason;
+        }else{
+            $reason = "No Reason Yet";
+        }
+
+        return view('dashboard::index', [
             'visitors' => $visitors,
+            'contacts' => $contacts,
+            'reason' => $reason,
         ]);
     }
 
@@ -60,5 +79,4 @@ class DashboardController extends Controller
     {
         (new VisitorInformationController)->updateLastVisit();
     }
-
 }

@@ -69,7 +69,7 @@
         </div>
     </section>
     <!-- right col -->
-    <div class="col-12">
+    {{-- <div class="col-12">
         <!-- /.card -->
         <div class="card bg-gradient-success">
             <div class="card-header border-0">
@@ -110,7 +110,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-    </div>
+    </div> --}}
 
 </div>
 
