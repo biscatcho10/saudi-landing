@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" required content="width=device-width, initial-scale=1.0" />
     <title>{{ site_name() }}</title>
     <link rel="shortcut icon" href="{{ app_favicon() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
@@ -13,8 +13,8 @@
     @notifyCss
 
     <title>{{ Settings::get('seo_title') }}</title>
-    <meta name="description" content="{{ Settings::get('seo_desc') }}">
-    <meta name="keywords" content="{{ Settings::get('key_words') }}">
+    <meta name="description" required content="{{ Settings::get('seo_desc') }}">
+    <meta name="keywords" required content="{{ Settings::get('key_words') }}">
     {!! Settings::get('google_analects') !!}
     {!! Settings::get('facebook_pixel') !!}
     {!! Settings::get('google_id_head') !!}
@@ -53,7 +53,8 @@
                                 <span class="active"></span>
                                 Exhibition
                             </label>
-                            <input type="text" name="exhibition" placeholder="" value="NPE Ex Riyadh 2022" />
+                            <input type="text" name="exhibition" required placeholder=""
+                                value="NPE Ex Riyadh 2022" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -61,7 +62,7 @@
                                 <span></span>
                                 Full Name
                             </label>
-                            <input type="text" name="name" placeholder="please write Your Name" />
+                            <input type="text" name="name" required placeholder="please write Your Name" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -69,7 +70,8 @@
                                 <span></span>
                                 Nationality
                             </label>
-                            <input type="text" name="nationality" placeholder="please write Your Nationality" />
+                            <input type="text" name="nationality" required
+                                placeholder="please write Your Nationality" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -78,14 +80,14 @@
                                 Mobile Number
                             </label>
                             <div class="cont_input d-flex">
-                                <input type="text" name="code" list="phoneSelect" class="pSelect" />
+                                <input type="text" name="code" required list="phoneSelect" class="pSelect" />
                                 <datalist id="phoneSelect">
                                     @foreach ($codes as $code)
                                         <option value="{{ $code['dial_code'] }}"></option>
                                     @endforeach
                                 </datalist>
 
-                                <input class="inp_phone" name="phone_number" type="tel"
+                                <input class="inp_phone" name="phone_number" required type="tel"
                                     placeholder="please write Your Mobile Number" />
                             </div>
                         </div>
@@ -95,7 +97,7 @@
                                 <span></span>
                                 E-Mail
                             </label>
-                            <input type="email" name="email" placeholder="please write Your E-Mail" />
+                            <input type="email" name="email" required placeholder="please write Your E-Mail" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -103,7 +105,8 @@
                                 <span></span>
                                 Profession
                             </label>
-                            <input type="text" name="profession" placeholder="please write Your profession" />
+                            <input type="text" name="profession" required
+                                placeholder="please write Your profession" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -111,7 +114,7 @@
                                 <span></span>
                                 How did you hear about us ?
                             </label>
-                            <input type="text" name="reason" list="Selects" placeholder="Please Select" />
+                            <input type="text" name="reason" required list="Selects" placeholder="Please Select" />
                             <datalist id="Selects">
                                 @foreach ($reasons as $reason)
                                     <option value="{{ $reason->reason }}"> {{ $reason->reason }} </option>

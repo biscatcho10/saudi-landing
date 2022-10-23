@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="logo d-flex">
-                        <img src="{{ asset('frontend/img/logo.png') }}" alt="" />
+                        <img src="{{ app_logo() }}" alt="" />
                     </div>
                 </div>
                 <div class="col-12">
