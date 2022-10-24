@@ -9,6 +9,7 @@ use Mail;
 use Modules\Frontend\Emails\RequestMail;
 use Modules\Frontend\Entities\ContactRequest;
 use Modules\HowKnow\Entities\Reason;
+use Validator;
 
 class FrontendController extends Controller
 {
@@ -93,5 +94,31 @@ class FrontendController extends Controller
         ];
 
         Mail::to($email)->send(new RequestMail($details));
+    }
+
+    public function attend(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => 'required|exists:contact_requests,reference_num',
+        ],[
+            'code.exists' => "Sorry, This Qr code is not valid"
+        ]);
+
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
+
+        $contact_request = ContactRequest::where('reference_num', $request->code)->first();
+
+        $contact_request->update([
+            'attended' => true
+        ]);
+
+        return response()->json([
+            'status' => 'success',
+            'msg' => "The User has been attended successfully.",
+            'data' => $contact_request
+        ]);
+
     }
 }

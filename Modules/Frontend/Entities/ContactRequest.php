@@ -19,6 +19,7 @@ class ContactRequest extends Model
         "profession",
         "reference_num",
         "reason_id",
+        "attended"
     ];
 
     public function reason()

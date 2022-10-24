@@ -6,7 +6,7 @@
 
 @section('content')
     @component('dashboard::layouts.components.page')
-        @slot('title', "Contacts")
+        @slot('title', 'Contacts')
         @slot('breadcrumbs', ['dashboard.home'])
         @include('dashboard::layouts.apps.datatables')
         @component('dashboard::layouts.components.table-box')
@@ -23,6 +23,7 @@
                     <th>Profession</th>
                     <th>Reference Number</th>
                     <th>From Where</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +50,17 @@
                         <td class="d-none d-md-table-cell">
                             {{ $contact->reason->reason }}
                         </td>
+                        <td class="d-none d-md-table-cell">
+                            @if ($contact->attended)
+                                <span class="badge badge-success">
+                                    Yes
+                                </span>
+                            @else
+                                <span class="badge badge-danger">
+                                    No
+                                </span>
+                            @endif
+                        </td>
                     </tr>
                 @empty
                     <tr>
@@ -56,5 +68,5 @@
                     </tr>
                 @endforelse
             @endcomponent
-    @endcomponent
-@endsection
+        @endcomponent
+    @endsection
