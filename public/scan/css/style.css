@@ -1,0 +1,258 @@
+
+@font-face {
+  font-family: Adlinnaka;
+  src: url('../font/Adlinnaka-BoldDemo.ttf');
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+section {
+  min-height: 100vh;
+  background: #3498db;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: url("../img/Landing Page-Design-1280 copy.png"), #000 top left;
+  background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logo img {
+  max-width: 100%;
+}
+h1{
+  justify-content: center;
+}
+h1 img{
+  width: 53px;
+  margin-left: 10px;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #af8f3a;
+  font-family: Adlinnaka;
+}
+.title p {
+  margin-bottom: 0;
+  font-size: 40px;
+  /* font-family: MYRIADPRO-BOLD; */
+  line-height: .8;
+  font-family: Adlinnaka;
+
+}
+.title span {
+  font-size: 24px;
+  /* font-family: MYRIADPRO-REGULAR; */
+  line-height: 1;
+
+  font-family: Adlinnaka;
+
+}
+.wrapper {
+  /* height: 265px;
+  max-width: 410px; */
+  /* width: 300px; */
+  /* height: 300px; */
+  margin: auto;
+  max-width: 100%;
+  /* background: #fff; */
+  border-radius: 7px;
+  /* padding: 20px; */
+  transition: height 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+#qr-shaded-region {
+  border: none !important;
+  display: flex;
+  inset: 45px !important;
+  border-radius: 3px;
+  overflow: hidden !important;
+}
+#qr-shaded-region > *:nth-child(3), #qr-shaded-region > *:nth-child(4) , #qr-shaded-region > *:nth-child(6) , #qr-shaded-region > *:nth-child(8) {
+  bottom: 0;
+  top: auto !important;
+}
+#qr-shaded-region > *:nth-child(1), #qr-shaded-region > *:nth-child(2) , #qr-shaded-region > *:nth-child(5) , #qr-shaded-region > *:nth-child(7) {
+  top: 0 !important;
+}
+#qr-shaded-region > *:nth-child(1), #qr-shaded-region > *:nth-child(2) , #qr-shaded-region > *:nth-child(3) , #qr-shaded-region > *:nth-child(4) {
+  height: 3px !important;
+}
+#qr-shaded-region > *:nth-child(5), #qr-shaded-region > *:nth-child(6) , #qr-shaded-region > *:nth-child(7) , #qr-shaded-region > *:nth-child(8) {
+  width: 3px !important;
+}
+#qr-shaded-region > *:nth-child(5), #qr-shaded-region > *:nth-child(6){
+  left: 0 !important;
+} 
+#qr-shaded-region > *:nth-child(7) , #qr-shaded-region > *:nth-child(8){
+  right: 0 !important;
+}
+#qr-shaded-region > *{
+  background-color: rgba(255, 255, 255, 0.379) !important;
+  display: none !important;
+}
+#qr-reader__scan_region {
+  padding: 30px;
+  background: #443f3261;
+  width: 300px !important;
+  height: 300px !important;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#qr-reader__scan_region::before {
+  content: '';
+  position: absolute;
+  inset: 30px;
+  background: #af8f3a;
+  background-image: url('../img/border-img.svg');
+  border-radius: 10px;
+  max-height: 300px;
+  max-width: 300px;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+video{
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+.wrapper img,
+#qr-reader__dashboard_section_swaplink {
+  /* display: none !important; */
+}
+img[alt="Info icon"],
+#qr-reader__dashboard_section_swaplink {
+  display: none !important;
+}
+#qr-reader-results{
+  margin: 20px 0;
+  color: #af8f3a;
+  text-align: center;
+}
+
+select{
+    background: #3232328a;
+    padding: 5px;
+    border-radius: 4px;
+    color: #af8f3a !important;
+}
+option{
+  color: #3232328a;
+}
+
+#qr-reader__dashboard_section_csr > span{
+  margin-right: 0 !important;
+}
+
+
+
+.wrapper .form {
+  margin: 20px 0 25px;
+}
+#qr-reader {
+  width: 100% !important;
+  border-radius: 7px;
+  padding: 20px !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+#qr-reader::after {
+  content: 'Allows to scan QR Codes with you WebCam on your desktop or mobile device';
+  color: #af8f3a;
+  position: relative;
+  text-align: center;
+  font-size: 11px;
+  max-width: 320px;
+  margin: auto;
+  margin-top: 50px;
+}
+#qr-reader__dashboard {
+  order: 3;
+}
+
+button {
+  /* display: block !important; */
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background: #3232328a;
+  transition: all ease-in-out 0.3s;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #af8f3a;
+}
+button:hover {
+  box-shadow: 0px 0px 5px 0px #323232;
+}
+.img_explanation {
+  overflow: hidden;
+}
+
+select {
+  display: block;
+  margin: auto;
+  margin-top: 8px;
+}
+
+.img_explanation img {
+  border-radius: 7px;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.r-gap {
+  row-gap: 20px;
+}
+
+@media all and (max-width: 767px) {
+  .img_explanation img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media all and (max-width: 480px) {
+  button {
+    margin-top: 20px !important;
+    width: 80%;
+    margin: auto;
+  }
+}
+.copyright p{
+  text-align: center;
+  color: #af8f3a66;
+  font-size: 9px;
+}

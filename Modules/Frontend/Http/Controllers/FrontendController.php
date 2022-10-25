@@ -96,6 +96,13 @@ class FrontendController extends Controller
         Mail::to($email)->send(new RequestMail($details));
     }
 
+
+    public function scan()
+    {
+        return view('frontend::scan');
+    }
+
+
     public function attend(Request $request)
     {
         $validator = Validator::make($request->all(), [
