@@ -123,7 +123,7 @@ class FrontendController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'msg' => "The User has been attended successfully.",
+            'msg' => "The user has attended.",
             'data' => $contact_request
         ]);
 
