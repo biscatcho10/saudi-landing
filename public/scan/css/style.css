@@ -23,6 +23,20 @@ section {
   background-repeat: no-repeat;
 }
 
+.myResult {
+    display: grid;
+    justify-content: center;
+    padding: 20px;
+    border: #af8f3a42 1px solid;
+    border-radius: 8px;
+}
+.myResult .error {
+    color: #7a2b2b !important;
+}
+.myResult .success_msg {
+    /* color: green !important; */
+}
+
 .logo img {
   max-width: 100%;
 }
@@ -96,7 +110,7 @@ h1 img{
 }
 #qr-shaded-region > *:nth-child(5), #qr-shaded-region > *:nth-child(6){
   left: 0 !important;
-} 
+}
 #qr-shaded-region > *:nth-child(7) , #qr-shaded-region > *:nth-child(8){
   right: 0 !important;
 }

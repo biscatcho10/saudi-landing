@@ -68,13 +68,50 @@
                 countResults = 0;
 
             function onScanSuccess(decodedText, decodedResult) {
+                (async () => {
+                    const rawResponse = await fetch('http://127.0.0.1:8000/api/attend', {
+                        method: 'POST',
+                        headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(
+                            {
+                                "_token": "{{ csrf_token() }}",
+                                'code':decodedText,
+                            })
+                    });
+                    const content = await rawResponse.json().then(data => {
+
+                        if (data.status == 'success') {
+
+                            resultContainer.innerHTML = `
+                                <div class='myResult'>
+                                    <div class='text-left mb-2 success_msg'>${data.msg}</div>
+                                    <div class='text-left mb-2'>Name: ${data.data.name}</div>
+                                </div>
+                            `
+
+                        } else {
+
+                            resultContainer.innerHTML = `
+                                <div class='myResult'>
+                                    <div class='text-left error'>${data.code[0]}</div>
+                                </div>
+                            `
+                        }
+                    });
+
+                })();
                 if (decodedText !== lastResult) {
+                    // console.log('amr');
                     ++countResults;
                     lastResult = decodedText;
                     // Handle on success condition with the decoded message.
                     // console.log(`Scan result ${decodedText}`, decodedResult);
-                    resultContainer.innerHTML = lastResult
+                    // resultContainer.innerHTML = lastResult
                 }
+
             }
 
             let html5QrcodeScanner = new Html5QrcodeScanner(
@@ -96,6 +133,8 @@
 
         });
     </script>
+
+
 </body>
 
 </html>
