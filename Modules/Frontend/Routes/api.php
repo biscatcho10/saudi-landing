@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 
-Route::post('attend', 'FrontendController@attend');
+Route::post('attend', 'FrontendController@attend')->name('attend');

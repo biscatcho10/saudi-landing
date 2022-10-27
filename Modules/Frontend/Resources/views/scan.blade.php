@@ -69,7 +69,7 @@
 
             function onScanSuccess(decodedText, decodedResult) {
                 (async () => {
-                    const rawResponse = await fetch('http://127.0.0.1:8000/api/attend', {
+                    const rawResponse = await fetch("{{ route('attend') }}", {
                         method: 'POST',
                         headers: {
                         'Accept': 'application/json',
