@@ -23,7 +23,7 @@
                     <th>Profession</th>
                     <th>Reference Number</th>
                     <th>From Where</th>
-                    <th>Status</th>
+                    <th>Attending</th>
                 </tr>
             </thead>
             <tbody>
