@@ -140,7 +140,7 @@
         </div>
     </section>
     <!-- End section contact  -->
-    {{ Settings::get('google_id_footer') }}
+    {!! Settings::get('google_id_footer') !!}
 
     <!-- scripts end -->
     <x:notify-messages />
