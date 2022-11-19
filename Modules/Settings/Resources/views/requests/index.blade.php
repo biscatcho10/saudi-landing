@@ -9,6 +9,7 @@
         @slot('title', 'Contacts')
         @slot('breadcrumbs', ['dashboard.home'])
         @include('dashboard::layouts.apps.datatables')
+        @include('roles::roles.partials.filter')
         @component('dashboard::layouts.components.table-box')
             @slot('title', 'Contacts')
             @slot('tools')

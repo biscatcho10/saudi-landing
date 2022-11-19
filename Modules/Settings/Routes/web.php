@@ -22,6 +22,8 @@ Route::middleware('dashboard')->prefix('dashboard')->as('dashboard.')->group(fun
 
     // Contact Requests
     Route::get('contact-requests', 'Dashboard\ContactRequestController@index')->name('contact-requests');
+
+    Route::post('file-import', 'Dashboard\ContactRequestController@import')->name('file-import');
 });
 
 Route::post('ckeditor/image_upload', 'Dashboard\SettingController@upload')->name('image.upload');

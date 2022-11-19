@@ -2,6 +2,8 @@
 
 namespace Modules\Settings\Http\Controllers\Dashboard;
 
+use App\Imports\ContactsImport;
+use Excel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -17,6 +19,13 @@ class ContactRequestController extends Controller
     {
         $contacts = ContactRequest::all();
         return view('settings::requests.index', compact('contacts'));
+    }
+
+
+    public function import(Request $request)
+    {
+        Excel::import(new ContactsImport, $request->file('file')->store('temp'));
+        return back();
     }
 
 }
