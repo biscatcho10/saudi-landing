@@ -125,7 +125,7 @@ if (!function_exists('site_name')) {
      */
     function site_name()
     {
-        return Settings::get('name:' . app()->getLocale());
+        return Settings::get('name');
     }
 }
 
