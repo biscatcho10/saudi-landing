@@ -15,7 +15,7 @@
 
     @slot('footer')
         <button type="submit" class="btn btn-primary btn-sm" form="import-form">
-            <i class="fas fa fa-fw fa-filter"></i>
+            <i class="fas fa-file-import"></i>
             Import
         </button>
     @endslot

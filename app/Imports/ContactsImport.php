@@ -4,6 +4,9 @@ namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\ToModel;
 use Modules\Frontend\Entities\ContactRequest;
+use Laraeast\LaravelSettings\Facades\Settings;
+use Mail;
+use Modules\Frontend\Emails\RequestMail;
 use Modules\HowKnow\Entities\Reason;
 
 class ContactsImport implements ToModel
@@ -15,19 +18,26 @@ class ContactsImport implements ToModel
      */
     public function model(array $row)
     {
-        $references = ContactRequest::pluck('reference_num')->toArray();
+        if($row[1] != "Email")
+        {
+            $references = ContactRequest::pluck('reference_num')->toArray();
 
-        return new ContactRequest([
-            "exhibition" => "NPE Ex Riyadh 2022",
-            "name" => $row[0],
-            "nationality" => $row[3],
-            "email" => $row[1],
-            "phone_number" => $row[2],
-            "profession" => $row[4],
-            "reference_num" => $this->makeReference($references),
-            "reason_id" => $this->reason($row[6]),
-            "attended" => 0
-        ]);
+            $contact = ContactRequest::create([
+                "exhibition" => "NPE Ex Riyadh 2022",
+                "name" => $row[0],
+                "nationality" => $row[3],
+                "email" => $row[1],
+                "phone_number" => $row[2],
+                "profession" => $row[4],
+                "reference_num" => $this->makeReference($references),
+                "reason_id" => 1,
+                "attended" => 0
+            ]);
+
+            // send mail
+            $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
+            return $contact;
+        }
     }
 
 
@@ -42,10 +52,21 @@ class ContactsImport implements ToModel
         }
     }
 
-    protected function reason($reason)
+
+    public function sendEmail($name, $email, $code)
     {
-        dd($reason);
-        return Reason::where('reason', $reason)->first()->id;
+        $email_template = Settings::get('mail_message');
+        $email_template = str_replace('{user_name}', $name, $email_template);
+
+        $details = [
+            'subject' => Settings::get('mail_subject'),
+            'body' => $email_template,
+            'actionText' => env('APP_NAME'),
+            'actionURL' => url('/'),
+            'code' => $code
+        ];
+
+        Mail::to($email)->send(new RequestMail($details));
     }
 }
 
@@ -56,5 +77,3 @@ class ContactsImport implements ToModel
 //   3 => "Nationality"
 //   4 => "Profession"
 //   5 => "Reference Number"
-//   6 => "From Where"
-//   7 => "Attending"

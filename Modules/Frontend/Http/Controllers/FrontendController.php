@@ -80,7 +80,7 @@ class FrontendController extends Controller
     }
 
 
-    public function sendEmail($name, $email, $code)
+    protected function sendEmail($name, $email, $code)
     {
         $email_template = Settings::get('mail_message');
         $email_template = str_replace('{user_name}', $name, $email_template);
