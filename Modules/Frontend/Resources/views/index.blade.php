@@ -143,7 +143,7 @@
     {!! Settings::get('google_id_footer') !!}
 
     <!-- scripts end -->
-    <x:notify-messages />
+    {{-- <x:notify-messages /> --}}
     @notifyJs
 </body>
 
