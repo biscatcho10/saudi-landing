@@ -354,3 +354,25 @@ function delFile($model)
         $media->delete();
     }
 }
+
+
+function generateQRCode($phone, $email)
+{
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://collardeg.com/api/collard/v2/generateticket?token=53qsHcYisB6GLPf3YqAMRihlwfBdtQdP8AJLHbEE&phone={$phone}&email={$email}",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return $response;
+}

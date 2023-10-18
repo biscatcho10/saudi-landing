@@ -210,10 +210,10 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'ibrahimelmonier',
+        'vendor' => 'karimosama',
         'author' => [
-            'name' => 'Ibrahim El-Monier',
-            'email' => 'elmonieribrahim@gmail.com',
+            'name' => 'Karim Osama',
+            'email' => 'karimosama1041997@gmail.com',
         ],
     ],
 

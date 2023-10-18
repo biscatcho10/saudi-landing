@@ -49,13 +49,20 @@ class FrontendController extends Controller
 
         $contact = ContactRequest::create($request->except('_token'));
 
-        $references = ContactRequest::pluck('reference_num')->toArray();
+        $response = generateQRCode(01014526325, $contact->email);
+
+        $response = json_decode($response, true);
         $contact->update([
-            "reference_num" => $this->makeReference($references),
+            "reference_num" => $response['qrcode'],
         ]);
 
-        // send mail
-        $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
+        try {
+            // send mail
+            if ($response['code'] == 'success') {
+                $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
+            }
+        } catch (\Exception $e) {
+        }
 
         notify()->success(__('Your data sent successfully.'));
         return redirect()->route('thanks.page');
@@ -92,7 +99,7 @@ class FrontendController extends Controller
             'actionURL' => url('/'),
             'code' => $code
         ];
-
+        
         Mail::to($email)->send(new RequestMail($details));
     }
 
