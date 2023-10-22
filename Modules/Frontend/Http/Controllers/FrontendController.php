@@ -27,13 +27,22 @@ class FrontendController extends Controller
 
     public function requestPost(Request $request)
     {
+
+        $request->merge([
+            'reason_id' => Reason::where('reason', '=', $request->reason)->first()->id,
+            'phone_number' => $request->code . $request->phone_number
+        ]);
+
         $validator = \Validator::make($request->all(), [
             "name" => 'required',
             "nationality" => 'required',
-            "email" => 'required|email',
-            "phone_number" => 'required',
+            "email" => 'required|email|unique:contact_requests,email',
+            "phone_number" => 'required|unique:contact_requests,phone_number',
             "profession" => 'required',
             "reason" => 'required|exists:reasons,reason',
+        ],[
+            'email.unique' => 'This email address already exists',
+            'phone_number.unique' => 'This phone number already exists',
         ]);
 
         if ($validator->fails()) {
@@ -42,14 +51,8 @@ class FrontendController extends Controller
             return redirect()->back();
         }
 
-        $request->merge([
-            'reason_id' => Reason::where('reason', '=', $request->reason)->first()->id,
-            'phone_number' => $request->code . " " . $request->phone_number
-        ]);
-
         $contact = ContactRequest::create($request->except('_token'));
-
-        $response = generateQRCode(01014526325, $contact->email);
+        $response = generateQRCode($request->phone_number , $contact->email);
 
         $response = json_decode($response, true);
         $contact->update([
@@ -99,7 +102,7 @@ class FrontendController extends Controller
             'actionURL' => url('/'),
             'code' => $code
         ];
-        
+
         Mail::to($email)->send(new RequestMail($details));
     }
 
