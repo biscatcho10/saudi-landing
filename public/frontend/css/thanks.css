@@ -22,6 +22,12 @@ body {
 .cf:after {
   clear: both;
 }
+.notify .text-gray-500 {
+    color: dimgrey !important;
+}
+.bg-red-600 {
+    background-color: red;
+}
 
 * {
   box-sizing: border-box;

@@ -20,7 +20,9 @@ html {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
 }
-
+.bg-red-600 {
+    background-color: red;
+}
 span {
   color: var(--min_color);
 }
@@ -32,8 +34,12 @@ img {
   max-width: 100%;
 }
 
-/* ========================= 
-        start contact 
+.notify .text-gray-500 {
+    color: dimgrey !important;
+}
+
+/* =========================
+        start contact
 =========================== */
 #contact {
   display: flex;
