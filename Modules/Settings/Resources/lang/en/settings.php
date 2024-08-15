@@ -97,6 +97,7 @@ return [
         'video_title' => 'Video Title',
         'video_description' => 'Video Description',
         'vidImage' => 'Video Image',
+        'exhibtion_name' => 'Exhibition Name',
     ],
     'dialogs' => [
         'delete' => [

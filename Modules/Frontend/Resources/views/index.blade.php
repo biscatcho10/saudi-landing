@@ -54,7 +54,7 @@
                                 Exhibition
                             </label>
                             <input type="text" name="exhibition" required placeholder=""
-                                value="NPE Ex Riyadh 2022" />
+                                value="{{ Settings::get('exhibtion_name') }}" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">

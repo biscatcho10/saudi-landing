@@ -98,6 +98,7 @@ return [
         'video_title' => 'عنوان الفيديو',
         'video_description' => 'وصف الفيديو',
         'vidImage' => 'صورة الفيديو',
+        'exhibtion_name' => 'اسم المعرض',
     ],
     'dialogs' => [
         'delete' => [
