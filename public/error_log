@@ -1,0 +1,8 @@
+[18-Oct-2023 14:03:34 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Container/Container.php:877
+Stack trace:
+#0 /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(877): ReflectionClass->__construct('view')
+#1 /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(758): Illuminate\Container\Container->build('view')
+#2 /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(851): Illuminate\Container\Container->resolve('view', Array, true)
+#3 /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(694): Illuminate\Foundation\Application->resolve('view', Array)
+#4 /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(836): Illuminate\Container\Containe in /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 879
+[18-Oct-2023 09:04:28 America/Chicago] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home1/mroshdy/riyadh2023.nilepropertyexpo.com/vendor/composer/platform_check.php on line 24

@@ -108,12 +108,12 @@ img {
           color: #fff;
         }
       }
-      input {
+      input,select {
         height: 40px;
         font-size: 13px;
         width: 100%;
         padding: 15px;
-        color: var(--min_color);
+        color: var(--min_color) !important;
         background-color: #000;
         border: 0.8px solid #d3a73780;
         border-radius: 3px;
@@ -133,6 +133,9 @@ img {
           box-shadow: 0 0 8px -1px var(--min_color);
           outline: none;
         }
+      }
+      select{
+        padding: 0 10px !important;
       }
       .pSelect {
         padding: 6px;
@@ -168,6 +171,10 @@ img {
       }
       animation: btn_Do 1.5s backwards infinite;
       -webkit-animation: btn_Do 1.5s backwards infinite;
+    }
+    .btn_form:disabled{
+      cursor: default;
+      background-color: #d3a83757;
     }
   }
   .img_sec {
