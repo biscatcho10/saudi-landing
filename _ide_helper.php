@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.83.26.
+ * Generated for Laravel 8.83.27.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1239,7 +1239,7 @@
          * Call the given Closure / class@method and inject its dependencies.
          *
          * @param callable|string $callback
-         * @param \Illuminate\Container\array<string,  mixed>  $parameters
+         * @param array<string, mixed> $parameters
          * @param string|null $defaultMethod
          * @return mixed 
          * @throws \InvalidArgumentException
@@ -9646,12 +9646,12 @@
          * Clones a request and overrides some of its parameters.
          *
          * @return static 
-         * @param array $query The GET parameters
-         * @param array $request The POST parameters
-         * @param array $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
-         * @param array $cookies The COOKIE parameters
-         * @param array $files The FILES parameters
-         * @param array $server The SERVER parameters
+         * @param array|null $query The GET parameters
+         * @param array|null $request The POST parameters
+         * @param array|null $attributes The request attributes (parameters parsed from the PATH_INFO, ...)
+         * @param array|null $cookies The COOKIE parameters
+         * @param array|null $files The FILES parameters
+         * @param array|null $server The SERVER parameters
          * @return static 
          * @static 
          */ 
@@ -15934,7 +15934,7 @@
          * @return \Generator 
          * @static 
          */ 
-        public static function merge($filepath, $percentage = 0.2, $absolute = false)
+        public static function merge($filepath, $percentage = 0.200000000000000011102230246251565404236316680908203125, $absolute = false)
         {
                         /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->merge($filepath, $percentage, $absolute);
@@ -15947,7 +15947,7 @@
          * @return \Generator 
          * @static 
          */ 
-        public static function mergeString($content, $percentage = 0.2)
+        public static function mergeString($content, $percentage = 0.200000000000000011102230246251565404236316680908203125)
         {
                         /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->mergeString($content, $percentage);
@@ -19664,11 +19664,8 @@
      */ 
         class LaravelNotify {
                     /**
-         * Flash an information message.
+         * 
          *
-         * @param string $message
-         * @param string|null $title
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function info($message, $title = null)
@@ -19677,11 +19674,8 @@
                         return $instance->info($message, $title);
         }
                     /**
-         * Flash a success message.
+         * 
          *
-         * @param string $message
-         * @param string|null $title
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function success($message, $title = null)
@@ -19690,11 +19684,8 @@
                         return $instance->success($message, $title);
         }
                     /**
-         * Flash an error message.
+         * 
          *
-         * @param string $message
-         * @param string|null $title
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function error($message, $title = null)
@@ -19703,11 +19694,8 @@
                         return $instance->error($message, $title);
         }
                     /**
-         * Flash a warning message.
+         * 
          *
-         * @param string $message
-         * @param string|null $title
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function warning($message, $title = null)
@@ -19716,12 +19704,8 @@
                         return $instance->warning($message, $title);
         }
                     /**
-         * Return a Connect Notification.
+         * 
          *
-         * @param string $type
-         * @param string $title
-         * @param string $message
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function connect($type, $title, $message)
@@ -19730,11 +19714,8 @@
                         return $instance->connect($type, $title, $message);
         }
                     /**
-         * Return a smiley notify.
+         * 
          *
-         * @param string $type
-         * @param string $message
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function smiley($type, $message)
@@ -19743,11 +19724,8 @@
                         return $instance->smiley($type, $message);
         }
                     /**
-         * Return a smiley notify.
+         * 
          *
-         * @param string $type
-         * @param string $message
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function emotify($type, $message)
@@ -19756,10 +19734,8 @@
                         return $instance->emotify($type, $message);
         }
                     /**
-         * Return a drake notify.
+         * 
          *
-         * @param string $type
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @static 
          */ 
         public static function drake($type)
@@ -19778,9 +19754,6 @@
          * 
          *          ['message' => 'Your new message here!']
          *
-         * @param string $presetName
-         * @param array $overrideValues
-         * @return \Mckenziearts\Notify\LaravelNotify 
          * @throws Exception
          * @static 
          */ 
@@ -19790,25 +19763,18 @@
                         return $instance->preset($presetName, $overrideValues);
         }
                     /**
-         * Flash a message.
+         * 
          *
-         * @param string $message
-         * @param string|null $type
-         * @param string|null $icon
-         * @param string|null $model
-         * @param string|null $title
-         * @return void 
          * @static 
          */ 
         public static function flash($message, $type = null, $icon = null, $model = null, $title = null)
         {
                         /** @var \Mckenziearts\Notify\LaravelNotify $instance */
-                        $instance->flash($message, $type, $icon, $model, $title);
+                        return $instance->flash($message, $type, $icon, $model, $title);
         }
                     /**
-         * Get the stored message.
+         * 
          *
-         * @return string 
          * @static 
          */ 
         public static function message()
@@ -19817,9 +19783,8 @@
                         return $instance->message();
         }
                     /**
-         * Get the stored type.
+         * 
          *
-         * @return string 
          * @static 
          */ 
         public static function type()

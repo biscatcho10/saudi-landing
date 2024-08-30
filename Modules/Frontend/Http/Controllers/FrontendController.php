@@ -56,14 +56,14 @@ class FrontendController extends Controller
 
         $response = json_decode($response, true);
         $contact->update([
-            "reference_num" => $response['qrcode'],
+            "reference_num" => data_get('qrcode', $response, rand(1000,9999)),
         ]);
 
         try {
             // send mail
-            if ($response['code'] == 'success') {
+            // if ($response['code'] == 'success') {
                 $this->sendEmail($contact->name, $contact->email, $contact->reference_num);
-            }
+            // }
         } catch (\Exception $e) {
         }
 
