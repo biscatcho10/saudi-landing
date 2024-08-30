@@ -9,9 +9,10 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
     <script>
-        let lang = "{{ app()->getLocale() === 'ar' ? 'Arabic' : 'English' }}" ;
+        let lang = "{{ app()->getLocale() === 'ar' ? 'Arabic' : 'English' }}";
         $(document).ready(function() {
             $('#datatable').DataTable({
+                responsive: true,
                 language: {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/" + lang + '.json'
                 },
@@ -25,19 +26,19 @@
                                 page: 'all', // 'all', 'current'
                                 search: 'none' // 'none', 'applied', 'removed'
                             },
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7],
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8],
                         }
                     },
                     {
                         extend: "csvHtml5",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                         }
                     },
                     {
                         extend: "excelHtml5",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                         }
                     }
                 ]
@@ -48,5 +49,6 @@
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 @endpush

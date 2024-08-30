@@ -24,6 +24,7 @@
                     <th>Profession</th>
                     <th>Reference Number</th>
                     <th>From Where</th>
+                    <td>Creation Date</td>
                     <th>Attending</th>
                 </tr>
             </thead>
@@ -52,6 +53,9 @@
                             {{ $contact->reason->reason }}
                         </td>
                         <td class="d-none d-md-table-cell">
+                            {{ $contact->created_at->format('Y-m-d H:i A') }}
+                        </td>
+                        <td class="d-none d-md-table-cell">
                             @if ($contact->attended)
                                 <span class="badge badge-success">
                                     Yes
@@ -68,6 +72,7 @@
                         <td colspan="100" class="text-center">No Contacts Yet</td>
                     </tr>
                 @endforelse
-            @endcomponent
+            </tbody>
         @endcomponent
-    @endsection
+    @endcomponent
+@endsection
