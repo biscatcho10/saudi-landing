@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" required content="width=device-width, initial-scale=1.0" />
-    <title>Nile Property Expo..RIYADH 2022</title>
     <link rel="shortcut icon" href="{{ app_favicon() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}" />
