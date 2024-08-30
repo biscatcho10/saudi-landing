@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" required content="width=device-width, initial-scale=1.0" />
-    <title>{{ site_name() }}</title>
     <link rel="shortcut icon" href="{{ app_favicon() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}" />
@@ -45,7 +44,7 @@
                 <!-- start left sec  -->
                 <div class="col-md-6">
                     <!-- start form  -->
-                    <form action="{{ route('request.post') }}" method="POST">
+                    <form action="{{ route('request.post') }}" id="contactForm" method="POST">
                         @csrf
                         <!-- start input -->
                         <div class="par_input">
@@ -114,15 +113,15 @@
                                 <span></span>
                                 How did you hear about us ?
                             </label>
-                            <input type="text" name="reason" required list="Selects" placeholder="Please Select" />
-                            <datalist id="Selects">
+                            {{-- <input type="text" name="reason" required list="Selects" placeholder="Please Select" /> --}}
+                            <select id="Selects" name="reason" required>
                                 @foreach ($reasons as $reason)
                                     <option value="{{ $reason->reason }}"> {{ $reason->reason }} </option>
                                 @endforeach
-                            </datalist>
+                            </select>
                         </div>
                         <!-- start btn form  -->
-                        <button type="submit" class="btn_form">Register</button>
+                        <button type="submit" id="btn_Register" class="btn_form">Register</button>
                     </form>
                     <!-- End form  -->
                 </div>
@@ -145,6 +144,16 @@
     <!-- scripts end -->
     @include('notify::components.notify')
     @notifyJs
+
+    <script>
+        let form = document.getElementById('contactForm'),
+            myBtn = document.getElementById('btn_Register')
+
+        form.addEventListener('submit', function () {
+            myBtn.disabled = true
+            myBtn.innerHTML = 'loading'
+        })
+    </script>
 </body>
 
 </html>
