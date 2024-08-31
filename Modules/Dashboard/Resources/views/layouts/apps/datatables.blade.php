@@ -12,7 +12,7 @@
         let lang = "{{ app()->getLocale() === 'ar' ? 'Arabic' : 'English' }}";
         $(document).ready(function() {
             $('#datatable').DataTable({
-                responsive: true,
+                scrollX: true,
                 language: {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/" + lang + '.json'
                 },
