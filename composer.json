@@ -13,6 +13,7 @@
         "ext-json": "*",
         "ahmed-aliraqi/laravel-media-uploader": "^6.3",
         "andreaselia/laravel-api-to-postman": "^1.7",
+        "anhskohbo/no-captcha": "^3.6",
         "arcanedev/log-viewer": "^8.1",
         "astrotomic/laravel-translatable": "^11.9",
         "barryvdh/laravel-ide-helper": "^2.8.2",

@@ -40,9 +40,12 @@ class FrontendController extends Controller
             "phone_number" => 'required|unique:contact_requests,phone_number',
             "profession" => 'required',
             "reason" => 'required|exists:reasons,reason',
+            'g-recaptcha-response' => 'required|captcha'
         ],[
             'email.unique' => 'This email address already exists',
             'phone_number.unique' => 'This phone number already exists',
+            'g-recaptcha-response.required' => __('Please verify that you are not a robot.'),
+            'g-recaptcha-response.captcha' => __('Captcha error! try again later or contact site admin.'),
         ]);
 
         if ($validator->fails()) {

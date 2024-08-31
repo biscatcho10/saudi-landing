@@ -15934,7 +15934,7 @@
          * @return \Generator 
          * @static 
          */ 
-        public static function merge($filepath, $percentage = 0.200000000000000011102230246251565404236316680908203125, $absolute = false)
+        public static function merge($filepath, $percentage = 0.2, $absolute = false)
         {
                         /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->merge($filepath, $percentage, $absolute);
@@ -15947,7 +15947,7 @@
          * @return \Generator 
          * @static 
          */ 
-        public static function mergeString($content, $percentage = 0.200000000000000011102230246251565404236316680908203125)
+        public static function mergeString($content, $percentage = 0.2)
         {
                         /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->mergeString($content, $percentage);
@@ -16447,6 +16447,107 @@
         {
                         /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
                         return $instance->assertImported($filePath, $disk, $callback);
+        }
+         
+    }
+     
+}
+
+    namespace Anhskohbo\NoCaptcha\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class NoCaptcha {
+                    /**
+         * Render HTML captcha.
+         *
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function display($attributes = [])
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->display($attributes);
+        }
+                    /**
+         * 
+         *
+         * @see display()
+         * @static 
+         */ 
+        public static function displayWidget($attributes = [])
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->displayWidget($attributes);
+        }
+                    /**
+         * Display a Invisible reCAPTCHA by embedding a callback into a form submit button.
+         *
+         * @param string $formIdentifier the html ID of the form that should be submitted.
+         * @param string $text the text inside the form button
+         * @param array $attributes array of additional html elements
+         * @return string 
+         * @static 
+         */ 
+        public static function displaySubmit($formIdentifier, $text = 'submit', $attributes = [])
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->displaySubmit($formIdentifier, $text, $attributes);
+        }
+                    /**
+         * Render js source
+         *
+         * @param null $lang
+         * @param bool $callback
+         * @param string $onLoadClass
+         * @return string 
+         * @static 
+         */ 
+        public static function renderJs($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->renderJs($lang, $callback, $onLoadClass);
+        }
+                    /**
+         * Verify no-captcha response.
+         *
+         * @param string $response
+         * @param string $clientIp
+         * @return bool 
+         * @static 
+         */ 
+        public static function verifyResponse($response, $clientIp = null)
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->verifyResponse($response, $clientIp);
+        }
+                    /**
+         * Verify no-captcha response by Symfony Request.
+         *
+         * @param \Request $request
+         * @return bool 
+         * @static 
+         */ 
+        public static function verifyRequest($request)
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->verifyRequest($request);
+        }
+                    /**
+         * Get recaptcha js link.
+         *
+         * @param string $lang
+         * @param boolean $callback
+         * @param string $onLoadClass
+         * @return string 
+         * @static 
+         */ 
+        public static function getJsLink($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
+        {
+                        /** @var \Anhskohbo\NoCaptcha\NoCaptcha $instance */
+                        return $instance->getJsLink($lang, $callback, $onLoadClass);
         }
          
     }
@@ -19239,6 +19340,17 @@
                         /** @var \Collective\Html\FormBuilder $instance */
                         return $instance->componentCall($method, $parameters);
         }
+                    /**
+         * 
+         *
+         * @see \Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::boot()
+         * @param mixed $attributes
+         * @static 
+         */ 
+        public static function captcha($attributes = [])
+        {
+                        return \Collective\Html\FormBuilder::captcha($attributes);
+        }
          
     }
             /**
@@ -19651,6 +19763,24 @@
         {
                         /** @var \Collective\Html\HtmlBuilder $instance */
                         return $instance->componentCall($method, $parameters);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class FormBuilder {
+                    /**
+         * 
+         *
+         * @see \Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::boot()
+         * @param mixed $attributes
+         * @static 
+         */ 
+        public static function captcha($attributes = [])
+        {
+                        return \Collective\Html\FormBuilder::captcha($attributes);
         }
          
     }
@@ -24035,6 +24165,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class QrCode extends \SimpleSoftwareIO\QrCode\Facades\QrCode {}
             class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+            class NoCaptcha extends \Anhskohbo\NoCaptcha\Facades\NoCaptcha {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class OneSignal extends \Berkayk\OneSignal\OneSignalFacade {}
             class Breadcrumbs extends \Elnooronline\Breadcrumbs\Facades\Breadcrumbs {}

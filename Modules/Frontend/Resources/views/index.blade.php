@@ -120,6 +120,11 @@
                                 @endforeach
                             </select>
                         </div>
+                        <!-- start input -->
+                        <div class="par_input">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                        </div>
                         <!-- start btn form  -->
                         <button type="submit" id="btn_Register" class="btn_form">Register</button>
                     </form>
@@ -149,7 +154,7 @@
         let form = document.getElementById('contactForm'),
             myBtn = document.getElementById('btn_Register')
 
-        form.addEventListener('submit', function () {
+        form.addEventListener('submit', function() {
             myBtn.disabled = true
             myBtn.innerHTML = 'loading'
         })
