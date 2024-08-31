@@ -61,7 +61,7 @@
                                 <span></span>
                                 Full Name
                             </label>
-                            <input type="text" name="name" required placeholder="please write Your Name" />
+                            <input type="text" name="name" value="{{ old('name') }}" required placeholder="please write Your Name" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -69,7 +69,7 @@
                                 <span></span>
                                 Nationality
                             </label>
-                            <input type="text" name="nationality" required
+                            <input type="text" name="nationality" value="{{ old('nationality') }}" required
                                 placeholder="please write Your Nationality" />
                         </div>
                         <!-- start input -->
@@ -86,7 +86,7 @@
                                     @endforeach
                                 </datalist>
 
-                                <input class="inp_phone" name="phone_number" required type="tel"
+                                <input class="inp_phone" name="phone_number" value="{{ old('phone_number') }}" required type="tel"
                                     placeholder="please write Your Mobile Number" />
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                 <span></span>
                                 E-Mail
                             </label>
-                            <input type="email" name="email" required placeholder="please write Your E-Mail" />
+                            <input type="email" name="email" value="{{ old('email') }}" required placeholder="please write Your E-Mail" />
                         </div>
                         <!-- start input -->
                         <div class="par_input">
@@ -104,7 +104,7 @@
                                 <span></span>
                                 Profession
                             </label>
-                            <input type="text" name="profession" required
+                            <input type="text" name="profession" value="{{ old('profession') }}" required
                                 placeholder="please write Your profession" />
                         </div>
                         <!-- start input -->
