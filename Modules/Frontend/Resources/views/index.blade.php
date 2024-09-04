@@ -21,6 +21,13 @@
     {!! Settings::get('hotjar') !!}
     {!! Settings::get('linked_tag') !!}
 
+    <style>
+        .rc-anchor{
+            background: transparent !important;
+            border-color: transparent !important;
+        }
+    </style>
+
 </head>
 
 <body>
