@@ -123,7 +123,7 @@
                         <!-- start input -->
                         <div class="par_input">
                             {!! NoCaptcha::renderJs() !!}
-                            {!! NoCaptcha::display() !!}
+                            {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
                         </div>
                         <!-- start btn form  -->
                         <button type="submit" id="btn_Register" class="btn_form">Register</button>
