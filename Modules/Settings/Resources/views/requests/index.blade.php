@@ -20,10 +20,10 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Nationality</th>
+                    {{-- <th>Nationality</th>
                     <th>Profession</th>
                     <th>Reference Number</th>
-                    <th>From Where</th>
+                    <th>From Where</th> --}}
                     <td>Creation Date</td>
                     <th>Attending</th>
                 </tr>
@@ -40,7 +40,7 @@
                         <td class="d-none d-md-table-cell">
                             {{ $contact->phone_number }}
                         </td>
-                        <td class="d-none d-md-table-cell">
+                        {{-- <td class="d-none d-md-table-cell">
                             {{ $contact->nationality }}
                         </td>
                         <td class="d-none d-md-table-cell">
@@ -51,7 +51,7 @@
                         </td>
                         <td class="d-none d-md-table-cell">
                             {{ $contact->reason->reason }}
-                        </td>
+                        </td> --}}
                         <td class="d-none d-md-table-cell">
                             {{ $contact->created_at->format('Y-m-d H:i A') }}
                         </td>

@@ -71,14 +71,14 @@
                             <input type="text" name="name" value="{{ old('name') }}" required placeholder="please write Your Name" />
                         </div>
                         <!-- start input -->
-                        <div class="par_input">
+                        {{-- <div class="par_input">
                             <label for="">
                                 <span></span>
                                 Nationality
                             </label>
                             <input type="text" name="nationality" value="{{ old('nationality') }}" required
                                 placeholder="please write Your Nationality" />
-                        </div>
+                        </div> --}}
                         <!-- start input -->
                         <div class="par_input">
                             <label for="">
@@ -106,27 +106,26 @@
                             <input type="email" name="email" value="{{ old('email') }}" required placeholder="please write Your E-Mail" />
                         </div>
                         <!-- start input -->
-                        <div class="par_input">
+                        {{-- <div class="par_input">
                             <label for="">
                                 <span></span>
                                 Profession
                             </label>
                             <input type="text" name="profession" value="{{ old('profession') }}" required
                                 placeholder="please write Your profession" />
-                        </div>
+                        </div> --}}
                         <!-- start input -->
-                        <div class="par_input">
+                        {{-- <div class="par_input">
                             <label for="">
                                 <span></span>
                                 How did you hear about us ?
                             </label>
-                            {{-- <input type="text" name="reason" required list="Selects" placeholder="Please Select" /> --}}
                             <select id="Selects" name="reason" required>
                                 @foreach ($reasons as $reason)
                                     <option value="{{ $reason->reason }}"> {{ $reason->reason }} </option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
                         <!-- start input -->
                         <div class="par_input">
                             {!! NoCaptcha::renderJs() !!}

@@ -23,7 +23,7 @@ class CreateContactRequestsTable extends Migration
             $table->string("phone_number", 191)->nullable();
             $table->string("profession")->nullable();
             $table->string("reference_num")->nullable();
-            $table->foreignIdFor(Reason::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Reason::class)->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

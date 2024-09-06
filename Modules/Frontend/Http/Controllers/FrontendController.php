@@ -29,17 +29,17 @@ class FrontendController extends Controller
     {
 
         $request->merge([
-            'reason_id' => Reason::where('reason', '=', $request->reason)->first()->id,
+            // 'reason_id' => Reason::where('reason', '=', $request->reason)->first()->id,
             'phone_number' => $request->code . $request->phone_number
         ]);
 
         $validator = \Validator::make($request->all(), [
             "name" => 'required',
-            "nationality" => 'required',
+            // "nationality" => 'required',
             "email" => 'required|email|unique:contact_requests,email',
             "phone_number" => 'required|unique:contact_requests,phone_number',
-            "profession" => 'required',
-            "reason" => 'required|exists:reasons,reason',
+            // "profession" => 'required',
+            // "reason" => 'required|exists:reasons,reason',
             'g-recaptcha-response' => 'required|captcha'
         ],[
             'email.unique' => 'This email address already exists',
