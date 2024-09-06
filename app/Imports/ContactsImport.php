@@ -25,12 +25,12 @@ class ContactsImport implements ToModel
             $contact = ContactRequest::create([
                 "exhibition" => "NPE Ex Riyadh 2022",
                 "name" => $row[0],
-                "nationality" => $row[3],
+                // "nationality" => $row[3],
                 "email" => $row[1],
                 "phone_number" => $row[2],
-                "profession" => $row[4],
-                "reference_num" => $this->makeReference($references),
-                "reason_id" => 1,
+                // "profession" => $row[4],
+                // "reference_num" => $this->makeReference($references),
+                // "reason_id" => 1,
                 "attended" => 0
             ]);
 
