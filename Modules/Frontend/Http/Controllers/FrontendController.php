@@ -19,7 +19,7 @@ class FrontendController extends Controller
         $reasons = Reason::all();
         $codes = config('countrycodes');
         return view('frontend::index', [
-            'reasons' => $reasons,
+//            'reasons' => $reasons,
             'codes' => $codes
         ]);
     }

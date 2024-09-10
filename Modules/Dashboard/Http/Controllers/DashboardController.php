@@ -34,16 +34,16 @@ class DashboardController extends Controller
             ->first();
 
 
-        if($id){
-            $reason = Reason::find($id->reason_id)->reason;
-        }else{
-            $reason = "No Reason Yet";
-        }
+        // if($id){
+        //     $reason = Reason::find($id->reason_id)->reason;
+        // }else{
+        //     $reason = "No Reason Yet";
+        // }
 
         return view('dashboard::index', [
             'visitors' => $visitors,
             'contacts' => $contacts,
-            'reason' => $reason,
+            // 'reason' => $reason,
         ]);
     }
 
